@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <title>Leaflet Example</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script>
+    window.onload = function( ) {
+        var map = L.map("h_map");
+
+        // 国土地理院レイヤー
+        var tileLayer_gsi = L.tileLayer(
+            "http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png",
+            {attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>国土地理院</a>"}
+        );
+        tileLayer_gsi.addTo(map);
+
+        // 表示する地点
+        var points = [
+            [35.65849330020204, 139.745443624837], // 東京タワー
+        ];
+
+        //           緯度　　　経度　　　　　表示倍率
+        map.setView(points[0], 15);
+
+       
+    }
+    </script>
+</head>
+
+<body>
+    <div id="h_map" style='width: 800px; height: 600px; border: solid 2px #808080;'></div>
+</body>
+</html>
+
